@@ -95,7 +95,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fqe-jv-o4T" secondAttribute="bottom" id="vhI-gX-tEj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Recipes" id="s8x-Rb-y78"/>
+                    <navigationItem key="navigationItem" title="My Recipes" id="s8x-Rb-y78">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="3vD-P4-ZIJ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="recipeTable" destination="fqe-jv-o4T" id="vsA-m1-BMj"/>
                         <segue destination="yTh-6Q-8hR" kind="show" identifier="detailSegue" id="EBG-NJ-p9g"/>
@@ -149,6 +151,7 @@
     </scenes>
     <resources>
         <image name="NoImage" width="600" height="600"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
