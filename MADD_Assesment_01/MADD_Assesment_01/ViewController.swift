@@ -6,26 +6,41 @@
 //
 
 import UIKit
+import CoreData
+
+var recipeList = [Recipe]()
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+    
+    var firstLoad = true
 
     let searchController = UISearchController()
     @IBOutlet weak var recipeTable: UITableView!
     var filteredRecipes = [Recipe]()
-
-    var data = [
-        Recipe(name: "Name 01", description: "Description 01", imageName: "meat", ingredients: ["1", "2", "3", "4", "5"], cookingTime: "10"),
-        Recipe(name: "Name 02", description: "Description 02", imageName: "meat", ingredients: ["1", "2", "3", "4", "5"], cookingTime: "10"),
-        Recipe(name: "Name 03", description: "Description 03", imageName: "meat", ingredients: ["1", "2", "3", "4", "5"], cookingTime: "10"),
-        Recipe(name: "Name 04", description: "Description 04", imageName: "meat", ingredients: ["1", "2", "3", "4", "5"], cookingTime: "10"),
-        Recipe(name: "Name 05", description: "Description 05", imageName: "meat", ingredients: ["1", "2", "3", "4", "5"], cookingTime: "10")
-    ]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initSearchController()
         recipeTable.dataSource = self
         recipeTable.delegate = self
-        initSearchController()
+       
+        
+        if(firstLoad){
+            firstLoad = false
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipe")
+            do{
+                let results: NSArray = try context.fetch(request) as NSArray
+                for result in results {
+                    let recipe = result as! Recipe
+                    recipeList.append(recipe)
+                }
+            }catch{
+                print("Something went wront, Please try again")
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -33,7 +48,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if(searchController.isActive){
             return filteredRecipes.count
         }
-        return data.count
+        return recipeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,13 +56,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if(searchController.isActive){
             dataSet = filteredRecipes[indexPath.row]
         }else{
-            dataSet = data[indexPath.row]
+            dataSet = recipeList[indexPath.row]
         }
         
         let cell = recipeTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         cell.recipeNameLabel.text = dataSet.name
-        cell.recipeNameDescription.text = dataSet.description
-        cell.recipeImageView.image  = UIImage(named: dataSet.imageName)
+        cell.recipeNameDescription.text = dataSet.recipeDescription
+        cell.recipeImageView.image  = UIImage(named: "nil")
         
         return cell
     }
@@ -79,7 +94,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func filterForSearchTextAndScopeButton(searchText: String, scopeButton: String = "All"){
-        filteredRecipes = data.filter{
+        filteredRecipes = recipeList.filter{
             recipe in
             let  scopeMatch = (scopeButton == "All" || recipe.name.lowercased().contains(searchText.lowercased()))
             if(searchController.searchBar.text != ""){
@@ -97,6 +112,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.performSegue(withIdentifier: "detailSegue", sender: self)
     }
 
+    @IBAction func editRecipe(_ sender: UIButton) {
+        var superview = sender.superview
+        while let view = superview, !(view is UITableViewCell) {
+            superview = view.superview
+        }
+        guard let cell = superview as? UITableViewCell else {
+            print("button is not contained in a table view cell")
+            return
+        }
+        guard let indexPath = self.recipeTable.indexPath(for: cell) else {
+            print("failed to get index path for cell containing button")
+            return
+        }
+        
+        self.performSegue(withIdentifier: "editRecipe", sender: indexPath)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "detailSegue"){
             let indexPath = self.recipeTable.indexPathForSelectedRow!
@@ -106,11 +137,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if(searchController.isActive){
                 selectedRecipe = filteredRecipes[indexPath.row]
             }else{
-                selectedRecipe = data[indexPath.row]
+                selectedRecipe = recipeList[indexPath.row]
             }
             
             tableViewDetail!.selectedRecipe = selectedRecipe
             self.recipeTable.deselectRow(at: indexPath, animated: true)
+            
+        }
+        if(segue.identifier == "editRecipe"){
+            let indexPath = sender as? IndexPath
+            let indexPathRow = indexPath!.row
+            let tableViewDetail = segue.destination as? RecipeAddViewController
+           
+            let selectedRecipe: Recipe!
+            if(searchController.isActive){
+                selectedRecipe = filteredRecipes[indexPathRow]
+            }else{
+                selectedRecipe = recipeList[indexPathRow]
+            }
+            
+            tableViewDetail!.selectedRecipe = selectedRecipe
+            self.recipeTable.deselectRow(at: indexPath!, animated: true)
             
         }
     }
@@ -121,10 +168,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         recipeTable.beginUpdates()
-        data.remove(at: indexPath.row)
+        recipeList.remove(at: indexPath.row)
         recipeTable.deleteRows(at: [indexPath], with: .fade)
         recipeTable.endUpdates()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        recipeTable.reloadData()
+    }
+    
 }
 
+extension UIView {
+    func nearestAncestor<T>(ofType type: T.Type) -> T? {
+        if let me = self as? T { return me }
+        return superview?.nearestAncestor(ofType: type)
+    }
+}

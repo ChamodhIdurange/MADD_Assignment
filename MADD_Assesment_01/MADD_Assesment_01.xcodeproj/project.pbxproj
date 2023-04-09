@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5740401C29E1B39F006CF1FD /* AddRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5740401B29E1B39F006CF1FD /* AddRecipe.swift */; };
+		578E8A7929E1CC0900D32E59 /* RecipeAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E8A7829E1CC0900D32E59 /* RecipeAdd.swift */; };
+		578E8A7C29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 578E8A7A29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld */; };
 		57B8E7A829E14AD9003EF137 /* RecipeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8E7A729E14AD9003EF137 /* RecipeDetails.swift */; };
 		57B8E7AA29E14D60003EF137 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8E7A929E14D60003EF137 /* Recipe.swift */; };
 		57D98E5D29E1245E002281EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D98E5C29E1245E002281EB /* AppDelegate.swift */; };
@@ -20,7 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5740401B29E1B39F006CF1FD /* AddRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipe.swift; sourceTree = "<group>"; };
+		578E8A7829E1CC0900D32E59 /* RecipeAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAdd.swift; sourceTree = "<group>"; };
+		578E8A7B29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MADD_Assesment_01.xcdatamodel; sourceTree = "<group>"; };
 		57B8E7A729E14AD9003EF137 /* RecipeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetails.swift; sourceTree = "<group>"; };
 		57B8E7A929E14D60003EF137 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		57D98E5929E1245E002281EB /* MADD_Assesment_01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MADD_Assesment_01.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +76,8 @@
 				57D98E7029E12820002281EB /* CustomTableViewCell.swift */,
 				57B8E7A729E14AD9003EF137 /* RecipeDetails.swift */,
 				57B8E7A929E14D60003EF137 /* Recipe.swift */,
-				5740401B29E1B39F006CF1FD /* AddRecipe.swift */,
+				578E8A7829E1CC0900D32E59 /* RecipeAdd.swift */,
+				578E8A7A29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld */,
 			);
 			path = MADD_Assesment_01;
 			sourceTree = "<group>";
@@ -151,11 +154,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				57D98E6129E1245E002281EB /* ViewController.swift in Sources */,
-				5740401C29E1B39F006CF1FD /* AddRecipe.swift in Sources */,
 				57D98E5D29E1245E002281EB /* AppDelegate.swift in Sources */,
 				57D98E7129E12820002281EB /* CustomTableViewCell.swift in Sources */,
 				57B8E7AA29E14D60003EF137 /* Recipe.swift in Sources */,
+				578E8A7929E1CC0900D32E59 /* RecipeAdd.swift in Sources */,
 				57B8E7A829E14AD9003EF137 /* RecipeDetails.swift in Sources */,
+				578E8A7C29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld in Sources */,
 				57D98E5F29E1245E002281EB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +376,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		578E8A7A29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				578E8A7B29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodel */,
+			);
+			currentVersion = 578E8A7B29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodel */;
+			path = MADD_Assesment_01.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 57D98E5129E1245E002281EB /* Project object */;
 }

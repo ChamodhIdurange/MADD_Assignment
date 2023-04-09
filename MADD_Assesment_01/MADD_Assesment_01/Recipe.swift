@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import CoreData
 
-struct Recipe{
-    let name: String
-    let description: String
-    let imageName: String
-    let ingredients: [String]
-    let cookingTime: String
+@objc(Recipe)
+class Recipe: NSManagedObject{
+    @NSManaged var name: String!
+    @NSManaged var recipeDescription: String!
+    @NSManaged var imageName: String!
+    @NSManaged var ingredients: String!
+    @NSManaged var recipeCategory: String!
+    @NSManaged var cookingTime: Double
     
 }
