@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 
 var recipeList = [Recipe]()
+let categoryList = ["Vegetarioan", "Non-vegitarian", "Appetizers", "Desserts"]
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchResultsUpdating {
     
@@ -167,10 +168,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        recipeTable.beginUpdates()
-        recipeList.remove(at: indexPath.row)
-        recipeTable.deleteRows(at: [indexPath], with: .fade)
-        recipeTable.endUpdates()
+        if editingStyle == .delete{
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+            context.delete(recipeList[indexPath.row] )
+            recipeList.remove(at: indexPath.row)
+            do {
+                try context.save()
+            } catch _ {
+                print("Error, something went wrong")
+            }
+         
+            recipeTable.deleteRows(at: [indexPath], with: .fade)
+            
+        }
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {

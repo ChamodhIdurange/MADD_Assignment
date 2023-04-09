@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 import CoreData
 
-class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-    
+class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var btnEditImage: UIButton!
     @IBOutlet weak var recipeName: UITextField!
@@ -21,6 +21,7 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
     
     var selectedRecipe: Recipe? = nil
     var imageName: String = "";
+    var categoryPickerView = UIPickerView()
     
     override func viewDidLoad() {
         self.imageView.layer.borderWidth = 1
@@ -28,6 +29,12 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
         self.imageView.layer.masksToBounds = false
         self.imageView.layer.cornerRadius = imageView.frame.size.height/2
         self.imageView.clipsToBounds = true
+        
+        self.category.inputView = categoryPickerView
+        categoryPickerView.delegate = self
+        categoryPickerView.dataSource = self
+        
+        categoryPickerView.tag = 1
  
         if(selectedRecipe != nil){
             recipeName.text = selectedRecipe?.name
@@ -102,6 +109,38 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
             
         }
         
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView.tag {
+        case 1:
+            return categoryList.count
+        default:
+            return 1
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView.tag {
+        case 1:
+            return categoryList[row]
+        default:
+            return "Data not found"
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView.tag {
+        case 1:
+            category.text = categoryList[row]
+            category.resignFirstResponder()
+        default:
+            return
+        }
     }
     
 }

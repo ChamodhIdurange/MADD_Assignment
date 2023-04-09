@@ -111,14 +111,14 @@
                     <navigationItem key="navigationItem" title="My Recipes" id="s8x-Rb-y78">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="3vD-P4-ZIJ">
                             <connections>
-                                <segue destination="k6l-TR-GXQ" kind="show" identifier="editRecipe" id="nZq-YS-dsd"/>
+                                <segue destination="k6l-TR-GXQ" kind="show" identifier="addRecipe" id="nZq-YS-dsd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="recipeTable" destination="fqe-jv-o4T" id="vsA-m1-BMj"/>
                         <segue destination="yTh-6Q-8hR" kind="show" identifier="detailSegue" id="EBG-NJ-p9g"/>
-                        <segue destination="k6l-TR-GXQ" kind="show" identifier="addRecipe" id="Mru-uq-AYR"/>
+                        <segue destination="k6l-TR-GXQ" kind="show" identifier="editRecipe" id="Mru-uq-AYR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
