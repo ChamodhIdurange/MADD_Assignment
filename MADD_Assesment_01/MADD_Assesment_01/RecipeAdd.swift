@@ -17,11 +17,13 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var ingredients: UITextField!
     @IBOutlet weak var category: UITextField!
     @IBOutlet weak var recipeDescription: UITextField!
-    @IBOutlet weak var cookingTime: UITextField!
+    @IBOutlet weak var labelStepper: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
     
     var selectedRecipe: Recipe? = nil
-    var imageName: String = "";
+    var selectedImage: UIImage? = nil
     var categoryPickerView = UIPickerView()
+    var stepperValue: Double = 0;
     
     override func viewDidLoad() {
         self.imageView.layer.borderWidth = 1
@@ -41,9 +43,17 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
             ingredients.text = selectedRecipe?.ingredients
             category.text = selectedRecipe?.recipeCategory
             recipeDescription.text = selectedRecipe?.recipeDescription
-            cookingTime.text = selectedRecipe?.imageName
+            stepper.value = selectedRecipe!.cookingTime
+            imageView.image = UIImage(data: selectedRecipe!.imageName as Data)
+            selectedImage = UIImage(data: selectedRecipe!.imageName as Data)
+            labelStepper.text = String("This recipe will take at least \(Int(selectedRecipe!.cookingTime)) hours")
             //recipeName.text = selectedRecipe?.name
         }
+    }
+    
+    @IBAction func stepper(_ sender: UIStepper) {
+        stepperValue = Double(sender.value)
+        labelStepper.text = String("This recipe will take at least \(Int(sender.value)) hours")
     }
     
     @IBAction func editImageAction(_ sender: Any) {
@@ -55,15 +65,10 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else {return}
-        imageName = ""
         imageView.image = image
+        selectedImage = image
         dismiss(animated: true)
-        
-        
-        if let url = info[UIImagePickerController.InfoKey.imageURL] as? URL {
-            imageName = url.lastPathComponent
-        }
-        print(imageName)
+    
     }
     
     @IBAction func saveAction(_ sender: Any) {
@@ -74,11 +79,12 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
             let entity = NSEntityDescription.entity(forEntityName: "Recipe", in: context)
             let newRecipe = Recipe(entity: entity!, insertInto: context)
             newRecipe.name = recipeName.text
-            newRecipe.cookingTime = 4.0
             newRecipe.ingredients = ingredients.text
-            newRecipe.recipeDescription = recipeDescription.text
-            newRecipe.imageName = imageName
             newRecipe.recipeCategory = category.text
+            newRecipe.recipeDescription = recipeDescription.text
+            newRecipe.cookingTime = stepperValue
+            newRecipe.imageName = selectedImage?.jpegData(compressionQuality: 1) as NSData?
+            
             
             do{
                 try context.save()
@@ -95,10 +101,12 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
                     let recipe = result as! Recipe
                     if(recipe == selectedRecipe){
                         recipe.name = recipeName.text
-                        recipe.cookingTime = 5.6
                         recipe.ingredients = ingredients.text
-                        recipe.recipeDescription = recipeDescription.text
                         recipe.recipeCategory = category.text
+                        recipe.recipeDescription = recipeDescription.text
+                        recipe.cookingTime = stepperValue
+                        recipe.imageName = selectedImage?.jpegData(compressionQuality: 1) as NSData?
+                        
                         try context.save()
                         navigationController?.popViewController(animated: true)
                     }

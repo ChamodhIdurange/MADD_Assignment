@@ -63,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = recipeTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         cell.recipeNameLabel.text = dataSet.name
         cell.recipeNameDescription.text = dataSet.recipeDescription
-        cell.recipeImageView.image  = UIImage(named: "nil")
+        cell.recipeImageView.image  = UIImage(data: dataSet.imageName! as Data)
         
         return cell
     }

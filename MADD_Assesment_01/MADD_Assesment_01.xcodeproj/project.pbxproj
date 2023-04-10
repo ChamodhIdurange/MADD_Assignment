@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		578E477229E465F7008573F1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E477129E465F7008573F1 /* Settings.swift */; };
 		578E8A7929E1CC0900D32E59 /* RecipeAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E8A7829E1CC0900D32E59 /* RecipeAdd.swift */; };
 		578E8A7C29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 578E8A7A29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld */; };
 		57B8E7A829E14AD9003EF137 /* RecipeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8E7A729E14AD9003EF137 /* RecipeDetails.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		578E477129E465F7008573F1 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		578E8A7829E1CC0900D32E59 /* RecipeAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAdd.swift; sourceTree = "<group>"; };
 		578E8A7B29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MADD_Assesment_01.xcdatamodel; sourceTree = "<group>"; };
 		57B8E7A729E14AD9003EF137 /* RecipeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetails.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				57B8E7A929E14D60003EF137 /* Recipe.swift */,
 				578E8A7829E1CC0900D32E59 /* RecipeAdd.swift */,
 				578E8A7A29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld */,
+				578E477129E465F7008573F1 /* Settings.swift */,
 			);
 			path = MADD_Assesment_01;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				57B8E7AA29E14D60003EF137 /* Recipe.swift in Sources */,
 				578E8A7929E1CC0900D32E59 /* RecipeAdd.swift in Sources */,
 				57B8E7A829E14AD9003EF137 /* RecipeDetails.swift in Sources */,
+				578E477229E465F7008573F1 /* Settings.swift in Sources */,
 				578E8A7C29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld in Sources */,
 				57D98E5F29E1245E002281EB /* SceneDelegate.swift in Sources */,
 			);

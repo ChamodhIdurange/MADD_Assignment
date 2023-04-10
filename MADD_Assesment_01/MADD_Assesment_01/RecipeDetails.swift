@@ -19,6 +19,6 @@ class RecipeDetailsViewController: UIViewController{
         super.viewDidLoad()
         
         recipeName.text = selectedRecipe.name
-        reipeImage.image = UIImage(named: selectedRecipe.imageName)
+        reipeImage.image = UIImage(data: selectedRecipe.imageName! as Data)
     }
 }
