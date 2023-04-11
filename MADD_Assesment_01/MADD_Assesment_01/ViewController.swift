@@ -25,8 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         initSearchController()
         recipeTable.dataSource = self
         recipeTable.delegate = self
-       
-        
+
         if(firstLoad){
             firstLoad = false
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -42,7 +41,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print("Something went wront, Please try again")
             }
         }
-        // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,12 +62,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.recipeNameLabel.text = dataSet.name
         cell.recipeNameDescription.text = dataSet.recipeDescription
         cell.recipeImageView.image  = UIImage(data: dataSet.imageName! as Data)
+
+        cell.recipeImageView.layer.cornerRadius = 20
+        cell.recipeImageView.clipsToBounds = true
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return 120
     }
     
     func initSearchController(){
@@ -82,7 +83,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.searchBar.scopeButtonTitles = ["All", "Non-Veg", "Veg"]
+        searchController.searchBar.scopeButtonTitles = ["All"] + categoryList
         searchController.searchBar.delegate = self
     }
     
@@ -90,14 +91,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let searchBar = searchController.searchBar
         let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         let searchText = searchBar.text!
-        
+        print(scopeButton)
         filterForSearchTextAndScopeButton(searchText: searchText, scopeButton: scopeButton)
     }
     
     func filterForSearchTextAndScopeButton(searchText: String, scopeButton: String = "All"){
         filteredRecipes = recipeList.filter{
             recipe in
-            let  scopeMatch = (scopeButton == "All" || recipe.name.lowercased().contains(searchText.lowercased()))
+            let  scopeMatch = (scopeButton == "All" || recipe.recipeCategory.lowercased().contains(scopeButton.lowercased()))
             if(searchController.searchBar.text != ""){
                 let searchTextMatch = recipe.name.lowercased().contains(searchText.lowercased())
                 
@@ -129,6 +130,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         self.performSegue(withIdentifier: "editRecipe", sender: indexPath)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "detailSegue"){
             let indexPath = self.recipeTable.indexPathForSelectedRow!
@@ -163,10 +165,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -189,11 +187,4 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         recipeTable.reloadData()
     }
     
-}
-
-extension UIView {
-    func nearestAncestor<T>(ofType type: T.Type) -> T? {
-        if let me = self as? T { return me }
-        return superview?.nearestAncestor(ofType: type)
-    }
 }

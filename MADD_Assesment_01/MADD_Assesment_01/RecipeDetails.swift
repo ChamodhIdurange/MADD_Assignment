@@ -11,7 +11,11 @@ import UIKit
 class RecipeDetailsViewController: UIViewController{
     
     @IBOutlet weak var recipeName: UILabel!
-    @IBOutlet weak var reipeImage: UIImageView!
+    @IBOutlet weak var recipeCategory: UILabel!
+    @IBOutlet weak var recipeTime: UILabel!
+    @IBOutlet weak var recipeDescription: UITextView!
+    @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var recipeIngredients: UITextView!
     
     var selectedRecipe: Recipe!
     
@@ -19,6 +23,10 @@ class RecipeDetailsViewController: UIViewController{
         super.viewDidLoad()
         
         recipeName.text = selectedRecipe.name
-        reipeImage.image = UIImage(data: selectedRecipe.imageName! as Data)
+        recipeImage.image = UIImage(data: selectedRecipe.imageName! as Data)
+        recipeCategory.text = selectedRecipe.recipeCategory
+        recipeIngredients.text = selectedRecipe.ingredients
+        recipeTime.text = String(selectedRecipe.cookingTime)
+        recipeDescription.text = selectedRecipe.recipeDescription
     }
 }

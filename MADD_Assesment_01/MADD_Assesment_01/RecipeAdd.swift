@@ -27,11 +27,12 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         self.imageView.layer.borderWidth = 1
-        self.imageView.layer.borderColor = UIColor.black.cgColor
+        self.imageView.layer.borderColor = UIColor.darkGray.cgColor
         self.imageView.layer.masksToBounds = false
         self.imageView.layer.cornerRadius = imageView.frame.size.height/2
         self.imageView.clipsToBounds = true
         
+        labelStepper.text = String("This recipe will take at least 0 hours")
         self.category.inputView = categoryPickerView
         categoryPickerView.delegate = self
         categoryPickerView.dataSource = self
@@ -47,12 +48,13 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
             imageView.image = UIImage(data: selectedRecipe!.imageName as Data)
             selectedImage = UIImage(data: selectedRecipe!.imageName as Data)
             labelStepper.text = String("This recipe will take at least \(Int(selectedRecipe!.cookingTime)) hours")
-            //recipeName.text = selectedRecipe?.name
         }
     }
     
     @IBAction func stepper(_ sender: UIStepper) {
+        print(sender.value)
         stepperValue = Double(sender.value)
+        
         labelStepper.text = String("This recipe will take at least \(Int(sender.value)) hours")
     }
     
