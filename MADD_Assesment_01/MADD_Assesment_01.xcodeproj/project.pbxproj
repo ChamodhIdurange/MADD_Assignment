@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		578E477229E465F7008573F1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E477129E465F7008573F1 /* Settings.swift */; };
-		578E8A7929E1CC0900D32E59 /* RecipeAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E8A7829E1CC0900D32E59 /* RecipeAdd.swift */; };
+		578E477229E465F7008573F1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E477129E465F7008573F1 /* SettingsViewController.swift */; };
+		578E8A7929E1CC0900D32E59 /* RecipeAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E8A7829E1CC0900D32E59 /* RecipeAddViewController.swift */; };
 		578E8A7C29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 578E8A7A29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld */; };
-		57B8E7A829E14AD9003EF137 /* RecipeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8E7A729E14AD9003EF137 /* RecipeDetails.swift */; };
+		57B8E7A829E14AD9003EF137 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8E7A729E14AD9003EF137 /* RecipeDetailsViewController.swift */; };
 		57B8E7AA29E14D60003EF137 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8E7A929E14D60003EF137 /* Recipe.swift */; };
 		57D98E5D29E1245E002281EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D98E5C29E1245E002281EB /* AppDelegate.swift */; };
 		57D98E5F29E1245E002281EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D98E5E29E1245E002281EB /* SceneDelegate.swift */; };
@@ -22,10 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		578E477129E465F7008573F1 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		578E8A7829E1CC0900D32E59 /* RecipeAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAdd.swift; sourceTree = "<group>"; };
+		578E477129E465F7008573F1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		578E8A7829E1CC0900D32E59 /* RecipeAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAddViewController.swift; sourceTree = "<group>"; };
 		578E8A7B29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MADD_Assesment_01.xcdatamodel; sourceTree = "<group>"; };
-		57B8E7A729E14AD9003EF137 /* RecipeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetails.swift; sourceTree = "<group>"; };
+		57B8E7A729E14AD9003EF137 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
 		57B8E7A929E14D60003EF137 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		57D98E5929E1245E002281EB /* MADD_Assesment_01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MADD_Assesment_01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57D98E5C29E1245E002281EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,11 +76,11 @@
 				57D98E6729E1245F002281EB /* LaunchScreen.storyboard */,
 				57D98E6A29E1245F002281EB /* Info.plist */,
 				57D98E7029E12820002281EB /* CustomTableViewCell.swift */,
-				57B8E7A729E14AD9003EF137 /* RecipeDetails.swift */,
+				57B8E7A729E14AD9003EF137 /* RecipeDetailsViewController.swift */,
 				57B8E7A929E14D60003EF137 /* Recipe.swift */,
-				578E8A7829E1CC0900D32E59 /* RecipeAdd.swift */,
+				578E8A7829E1CC0900D32E59 /* RecipeAddViewController.swift */,
 				578E8A7A29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld */,
-				578E477129E465F7008573F1 /* Settings.swift */,
+				578E477129E465F7008573F1 /* SettingsViewController.swift */,
 			);
 			path = MADD_Assesment_01;
 			sourceTree = "<group>";
@@ -160,9 +160,9 @@
 				57D98E5D29E1245E002281EB /* AppDelegate.swift in Sources */,
 				57D98E7129E12820002281EB /* CustomTableViewCell.swift in Sources */,
 				57B8E7AA29E14D60003EF137 /* Recipe.swift in Sources */,
-				578E8A7929E1CC0900D32E59 /* RecipeAdd.swift in Sources */,
-				57B8E7A829E14AD9003EF137 /* RecipeDetails.swift in Sources */,
-				578E477229E465F7008573F1 /* Settings.swift in Sources */,
+				578E8A7929E1CC0900D32E59 /* RecipeAddViewController.swift in Sources */,
+				57B8E7A829E14AD9003EF137 /* RecipeDetailsViewController.swift in Sources */,
+				578E477229E465F7008573F1 /* SettingsViewController.swift in Sources */,
 				578E8A7C29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld in Sources */,
 				57D98E5F29E1245E002281EB /* SceneDelegate.swift in Sources */,
 			);

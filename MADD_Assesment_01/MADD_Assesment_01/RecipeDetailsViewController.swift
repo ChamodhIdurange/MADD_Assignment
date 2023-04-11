@@ -11,16 +11,22 @@ import UIKit
 class RecipeDetailsViewController: UIViewController{
     
     @IBOutlet weak var recipeName: UILabel!
-    @IBOutlet weak var recipeCategory: UILabel!
     @IBOutlet weak var recipeTime: UILabel!
     @IBOutlet weak var recipeDescription: UITextView!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeIngredients: UITextView!
+    @IBOutlet weak var recipeCategory: UILabel!
     
     var selectedRecipe: Recipe!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.recipeImage.layer.borderWidth = 1
+        self.recipeImage.layer.borderColor = UIColor.darkGray.cgColor
+        self.recipeImage.layer.masksToBounds = false
+        self.recipeImage.layer.cornerRadius = 20
+        self.recipeImage.clipsToBounds = true
         
         recipeName.text = selectedRecipe.name
         recipeImage.image = UIImage(data: selectedRecipe.imageName! as Data)

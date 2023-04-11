@@ -91,7 +91,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let searchBar = searchController.searchBar
         let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
         let searchText = searchBar.text!
-        print(scopeButton)
         filterForSearchTextAndScopeButton(searchText: searchText, scopeButton: scopeButton)
     }
     

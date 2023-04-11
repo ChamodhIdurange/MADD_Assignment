@@ -15,10 +15,10 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var btnEditImage: UIButton!
     @IBOutlet weak var recipeName: UITextField!
     @IBOutlet weak var ingredients: UITextField!
-    @IBOutlet weak var category: UITextField!
     @IBOutlet weak var recipeDescription: UITextField!
     @IBOutlet weak var labelStepper: UILabel!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var category: UITextField!
     
     var selectedRecipe: Recipe? = nil
     var selectedImage: UIImage? = nil
