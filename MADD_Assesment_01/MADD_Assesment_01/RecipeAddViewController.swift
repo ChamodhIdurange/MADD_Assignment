@@ -24,13 +24,28 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
     var selectedImage: UIImage? = nil
     var categoryPickerView = UIPickerView()
     var stepperValue: Double = 0;
-    
+    let alert = UIAlertController(title: "Alert", message: "Please fill all fields", preferredStyle: .alert)
+
     override func viewDidLoad() {
         self.imageView.layer.borderWidth = 1
         self.imageView.layer.borderColor = UIColor.darkGray.cgColor
         self.imageView.layer.masksToBounds = false
         self.imageView.layer.cornerRadius = imageView.frame.size.height/2
         self.imageView.clipsToBounds = true
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            switch action.style{
+                case .default:
+                print("default")
+    
+                case .cancel:
+                print("cancel")
+                
+                case .destructive:
+                print("destructive")
+            @unknown default:
+                print("Error")
+            }
+        }))
         
         labelStepper.text = String("This recipe will take at least 0 hours")
         self.category.inputView = categoryPickerView
@@ -77,6 +92,10 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
         
+        if(recipeName.text == "" || ingredients.text == "" || category.text == "" || recipeDescription.text == "" || stepperValue == 0 || selectedImage == nil){
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         if(selectedRecipe == nil){
             let entity = NSEntityDescription.entity(forEntityName: "Recipe", in: context)
             let newRecipe = Recipe(entity: entity!, insertInto: context)

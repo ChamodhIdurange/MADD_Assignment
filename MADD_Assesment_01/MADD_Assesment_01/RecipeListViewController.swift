@@ -11,7 +11,7 @@ import CoreData
 var recipeList = [Recipe]()
 let categoryList = ["Vegetarioan", "Non-vegitarian", "Appetizers", "Desserts"]
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+class RecipeListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchResultsUpdating {
     
     var firstLoad = true
 
@@ -61,7 +61,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = recipeTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         cell.recipeNameLabel.text = dataSet.name
         cell.recipeNameDescription.text = dataSet.recipeDescription
-        cell.recipeImageView.image  = UIImage(data: dataSet.imageName! as Data)
+        //cell.recipeImageView.image  = UIImage(data: dataSet.imageName! as Data)
 
         cell.recipeImageView.layer.cornerRadius = 20
         cell.recipeImageView.clipsToBounds = true
