@@ -27,11 +27,7 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
     let alert = UIAlertController(title: "Alert", message: "Please fill all fields", preferredStyle: .alert)
 
     override func viewDidLoad() {
-        self.imageView.layer.borderWidth = 1
-        self.imageView.layer.borderColor = UIColor.darkGray.cgColor
-        self.imageView.layer.masksToBounds = false
-        self.imageView.layer.cornerRadius = imageView.frame.size.height/2
-        self.imageView.clipsToBounds = true
+        self.imageView.makeRoundImage(imageCircle: true)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             switch action.style{
                 case .default:

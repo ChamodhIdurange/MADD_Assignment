@@ -11,10 +11,9 @@ import CoreData
 var recipeList = [Recipe]()
 let categoryList = ["Vegetarioan", "Non-vegitarian", "Appetizers", "Desserts"]
 
-class RecipeListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+class RecipeListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var firstLoad = true
-
     let searchController = UISearchController()
     @IBOutlet weak var recipeTable: UITableView!
     var filteredRecipes = [Recipe]()
@@ -61,52 +60,14 @@ class RecipeListViewController: UIViewController, UITableViewDataSource, UITable
         let cell = recipeTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         cell.recipeNameLabel.text = dataSet.name
         cell.recipeNameDescription.text = dataSet.recipeDescription
-        //cell.recipeImageView.image  = UIImage(data: dataSet.imageName! as Data)
+        cell.recipeImageView.image  = UIImage(data: dataSet.imageName! as Data)
+        cell.recipeImageView.makeRoundImage(imageCircle: false)
 
-        cell.recipeImageView.layer.cornerRadius = 20
-        cell.recipeImageView.clipsToBounds = true
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
-    }
-    
-    func initSearchController(){
-        searchController.loadView()
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.enablesReturnKeyAutomatically = false
-        searchController.searchBar.returnKeyType = UIReturnKeyType.done
-        definesPresentationContext = true
-        
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.searchBar.scopeButtonTitles = ["All"] + categoryList
-        searchController.searchBar.delegate = self
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scopeButton = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        let searchText = searchBar.text!
-        filterForSearchTextAndScopeButton(searchText: searchText, scopeButton: scopeButton)
-    }
-    
-    func filterForSearchTextAndScopeButton(searchText: String, scopeButton: String = "All"){
-        filteredRecipes = recipeList.filter{
-            recipe in
-            let  scopeMatch = (scopeButton == "All" || recipe.recipeCategory.lowercased().contains(scopeButton.lowercased()))
-            if(searchController.searchBar.text != ""){
-                let searchTextMatch = recipe.name.lowercased().contains(searchText.lowercased())
-                
-                return scopeMatch && searchTextMatch
-            }else{
-                return scopeMatch
-            }
-        }
-        recipeTable.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

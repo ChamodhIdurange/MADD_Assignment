@@ -21,12 +21,7 @@ class RecipeDetailsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.recipeImage.layer.borderWidth = 1
-        self.recipeImage.layer.borderColor = UIColor.darkGray.cgColor
-        self.recipeImage.layer.masksToBounds = false
-        self.recipeImage.layer.cornerRadius = 20
-        self.recipeImage.clipsToBounds = true
+        self.recipeImage.makeRoundImage(imageCircle: false)
         
         recipeName.text = selectedRecipe.name
         recipeImage.image = UIImage(data: selectedRecipe.imageName! as Data)
