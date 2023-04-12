@@ -56,6 +56,7 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
             category.text = selectedRecipe?.recipeCategory
             recipeDescription.text = selectedRecipe?.recipeDescription
             stepper.value = selectedRecipe!.cookingTime
+            stepperValue = selectedRecipe!.cookingTime
             imageView.image = UIImage(data: selectedRecipe!.imageName as Data)
             selectedImage = UIImage(data: selectedRecipe!.imageName as Data)
             labelStepper.text = String("This recipe will take at least \(Int(selectedRecipe!.cookingTime)) hours")
@@ -79,7 +80,8 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
         
-        if(recipeName.text == "" || ingredients.text == "" || category.text == "" || recipeDescription.text == "" || stepperValue == 0 || selectedImage == nil){
+        print(recipeName.text!)
+        if(recipeName.text! == "" || ingredients.text! == "" || category.text! == "" || recipeDescription.text! == "" || stepperValue == 0 || selectedImage == nil){
             self.present(alert, animated: true, completion: nil)
             return
         }
