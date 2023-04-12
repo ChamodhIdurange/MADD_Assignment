@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
+class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var btnEditImage: UIButton!
@@ -65,7 +65,6 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
     @IBAction func stepper(_ sender: UIStepper) {
         print(sender.value)
         stepperValue = Double(sender.value)
-        
         labelStepper.text = String("This recipe will take at least \(Int(sender.value)) hours")
     }
     
@@ -74,14 +73,6 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[.editedImage] as? UIImage else {return}
-        imageView.image = image
-        selectedImage = image
-        dismiss(animated: true)
-    
     }
     
     @IBAction func saveAction(_ sender: Any) {
@@ -108,7 +99,7 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
                 recipeList.append(newRecipe)
                 navigationController?.popViewController(animated: true)
             }catch{
-                print("Error")
+                print("Something went wront, Please try again")
             }
         }else{
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipe")
@@ -134,38 +125,6 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
             
         }
         
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch pickerView.tag {
-        case 1:
-            return categoryList.count
-        default:
-            return 1
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch pickerView.tag {
-        case 1:
-            return categoryList[row]
-        default:
-            return "Data not found"
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch pickerView.tag {
-        case 1:
-            category.text = categoryList[row]
-            category.resignFirstResponder()
-        default:
-            return
-        }
     }
     
 }

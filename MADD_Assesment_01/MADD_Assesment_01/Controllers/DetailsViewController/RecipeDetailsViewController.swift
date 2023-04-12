@@ -22,7 +22,6 @@ class RecipeDetailsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.recipeImage.makeRoundImage(imageCircle: false)
-        
         recipeName.text = selectedRecipe.name
         recipeImage.image = UIImage(data: selectedRecipe.imageName! as Data)
         recipeCategory.text = selectedRecipe.recipeCategory

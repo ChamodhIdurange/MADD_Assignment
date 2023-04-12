@@ -14,6 +14,8 @@
 		57ADE99D29E6780E003FCADE /* RecipeListView+SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ADE99C29E6780E003FCADE /* RecipeListView+SearchController.swift */; };
 		57ADE99F29E67B09003FCADE /* RecipeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ADE99E29E67B09003FCADE /* RecipeListTableViewController.swift */; };
 		57ADE9A229E67CFD003FCADE /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ADE9A129E67CFD003FCADE /* CoreDataStore.swift */; };
+		57ADE9A729E6818A003FCADE /* RecipeAddViewController+imagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ADE9A629E6818A003FCADE /* RecipeAddViewController+imagePicker.swift */; };
+		57ADE9A929E68273003FCADE /* RecipeAddViewController+dropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ADE9A829E68273003FCADE /* RecipeAddViewController+dropDown.swift */; };
 		57B8E7A829E14AD9003EF137 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8E7A729E14AD9003EF137 /* RecipeDetailsViewController.swift */; };
 		57B8E7AA29E14D60003EF137 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8E7A929E14D60003EF137 /* Recipe.swift */; };
 		57D98E5D29E1245E002281EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D98E5C29E1245E002281EB /* AppDelegate.swift */; };
@@ -33,6 +35,8 @@
 		57ADE99C29E6780E003FCADE /* RecipeListView+SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeListView+SearchController.swift"; sourceTree = "<group>"; };
 		57ADE99E29E67B09003FCADE /* RecipeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTableViewController.swift; sourceTree = "<group>"; };
 		57ADE9A129E67CFD003FCADE /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		57ADE9A629E6818A003FCADE /* RecipeAddViewController+imagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeAddViewController+imagePicker.swift"; sourceTree = "<group>"; };
+		57ADE9A829E68273003FCADE /* RecipeAddViewController+dropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeAddViewController+dropDown.swift"; sourceTree = "<group>"; };
 		57B8E7A729E14AD9003EF137 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
 		57B8E7A929E14D60003EF137 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		57D98E5929E1245E002281EB /* MADD_Assesment_01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MADD_Assesment_01.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +72,8 @@
 		57ADE99A29E67721003FCADE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				57ADE9A529E6802C003FCADE /* AddEditViewController */,
+				57ADE9A429E67FD5003FCADE /* DetailsViewController */,
 				57ADE99B29E6779B003FCADE /* ListViewController */,
 			);
 			path = Controllers;
@@ -92,6 +98,32 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		57ADE9A329E67FB3003FCADE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				57B8E7A929E14D60003EF137 /* Recipe.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		57ADE9A429E67FD5003FCADE /* DetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				57B8E7A729E14AD9003EF137 /* RecipeDetailsViewController.swift */,
+			);
+			path = DetailsViewController;
+			sourceTree = "<group>";
+		};
+		57ADE9A529E6802C003FCADE /* AddEditViewController */ = {
+			isa = PBXGroup;
+			children = (
+				578E8A7829E1CC0900D32E59 /* RecipeAddViewController.swift */,
+				57ADE9A629E6818A003FCADE /* RecipeAddViewController+imagePicker.swift */,
+				57ADE9A829E68273003FCADE /* RecipeAddViewController+dropDown.swift */,
+			);
+			path = AddEditViewController;
+			sourceTree = "<group>";
+		};
 		57D98E5029E1245E002281EB = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +143,7 @@
 		57D98E5B29E1245E002281EB /* MADD_Assesment_01 */ = {
 			isa = PBXGroup;
 			children = (
+				57ADE9A329E67FB3003FCADE /* Models */,
 				57ADE9A029E67CEA003FCADE /* CoreData */,
 				57ADE99A29E67721003FCADE /* Controllers */,
 				57ADE99729E67455003FCADE /* View */,
@@ -120,9 +153,6 @@
 				57D98E6529E1245F002281EB /* Assets.xcassets */,
 				57D98E6729E1245F002281EB /* LaunchScreen.storyboard */,
 				57D98E6A29E1245F002281EB /* Info.plist */,
-				57B8E7A729E14AD9003EF137 /* RecipeDetailsViewController.swift */,
-				57B8E7A929E14D60003EF137 /* Recipe.swift */,
-				578E8A7829E1CC0900D32E59 /* RecipeAddViewController.swift */,
 				578E8A7A29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld */,
 				578E477129E465F7008573F1 /* SettingsViewController.swift */,
 			);
@@ -212,6 +242,8 @@
 				57B8E7A829E14AD9003EF137 /* RecipeDetailsViewController.swift in Sources */,
 				578E477229E465F7008573F1 /* SettingsViewController.swift in Sources */,
 				578E8A7C29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld in Sources */,
+				57ADE9A729E6818A003FCADE /* RecipeAddViewController+imagePicker.swift in Sources */,
+				57ADE9A929E68273003FCADE /* RecipeAddViewController+dropDown.swift in Sources */,
 				57D98E5F29E1245E002281EB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
