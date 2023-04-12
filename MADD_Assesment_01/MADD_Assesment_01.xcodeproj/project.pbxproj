@@ -72,6 +72,7 @@
 		57ADE99A29E67721003FCADE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				57ADE9AA29E6845F003FCADE /* SettingsViewController */,
 				57ADE9A529E6802C003FCADE /* AddEditViewController */,
 				57ADE9A429E67FD5003FCADE /* DetailsViewController */,
 				57ADE99B29E6779B003FCADE /* ListViewController */,
@@ -124,6 +125,14 @@
 			path = AddEditViewController;
 			sourceTree = "<group>";
 		};
+		57ADE9AA29E6845F003FCADE /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				578E477129E465F7008573F1 /* SettingsViewController.swift */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
 		57D98E5029E1245E002281EB = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +163,6 @@
 				57D98E6729E1245F002281EB /* LaunchScreen.storyboard */,
 				57D98E6A29E1245F002281EB /* Info.plist */,
 				578E8A7A29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld */,
-				578E477129E465F7008573F1 /* SettingsViewController.swift */,
 			);
 			path = MADD_Assesment_01;
 			sourceTree = "<group>";

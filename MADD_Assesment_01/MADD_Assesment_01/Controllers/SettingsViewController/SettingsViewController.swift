@@ -16,21 +16,14 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.imageView.layer.borderWidth = 1
-        self.imageView.layer.borderColor = UIColor.darkGray.cgColor
-        self.imageView.layer.masksToBounds = false
-        self.imageView.layer.cornerRadius = 20
-        self.imageView.clipsToBounds = true
+        self.imageView.makeRoundImage(imageCircle: false)
         
         themeSwitch.isOn = false
         themeLabel.text = "Light"
         
     }
     
-    
     @IBAction func switchChange(_ sender: Any) {
-    
         if themeSwitch.isOn == true{
             UIApplication.shared.windows.forEach { window in
                 window.overrideUserInterfaceStyle = .dark
