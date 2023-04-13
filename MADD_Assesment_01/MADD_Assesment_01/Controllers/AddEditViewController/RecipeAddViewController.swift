@@ -95,13 +95,12 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
             newRecipe.cookingTime = stepperValue
             newRecipe.imageName = selectedImage?.jpegData(compressionQuality: 1) as NSData?
             
-            
             do{
                 try context.save()
                 recipeList.append(newRecipe)
                 navigationController?.popViewController(animated: true)
             }catch{
-                print("Something went wront, Please try again")
+                print("Something went wrong, Please try again")
             }
         }else{
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipe")
