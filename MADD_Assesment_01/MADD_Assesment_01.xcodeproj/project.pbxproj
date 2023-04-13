@@ -27,6 +27,7 @@
 		57D98E7129E12820002281EB /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D98E7029E12820002281EB /* CustomTableViewCell.swift */; };
 		57E9C01F29E853F800588914 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9C01E29E853F800588914 /* Recipe+CoreDataProperties.swift */; };
 		57E9C02129E8587A00588914 /* RecipeCustomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9C02029E8587A00588914 /* RecipeCustomModel.swift */; };
+		57E9C02429E8625F00588914 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9C02329E8625F00588914 /* CustomError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		57D98E7029E12820002281EB /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		57E9C01E29E853F800588914 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		57E9C02029E8587A00588914 /* RecipeCustomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCustomModel.swift; sourceTree = "<group>"; };
+		57E9C02329E8625F00588914 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		57D98E5B29E1245E002281EB /* MADD_Assesment_01 */ = {
 			isa = PBXGroup;
 			children = (
+				57E9C02229E8624D00588914 /* Enums */,
 				57E9C01D29E84B5A00588914 /* Resources */,
 				57E9C01C29E84AE300588914 /* Application */,
 				57ADE9AB29E68DC8003FCADE /* Storyboards */,
@@ -195,6 +198,14 @@
 				57D98E6529E1245F002281EB /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		57E9C02229E8624D00588914 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				57E9C02329E8625F00588914 /* CustomError.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +284,7 @@
 				57D98E5D29E1245E002281EB /* AppDelegate.swift in Sources */,
 				57D98E7129E12820002281EB /* CustomTableViewCell.swift in Sources */,
 				57B8E7AA29E14D60003EF137 /* Recipe.swift in Sources */,
+				57E9C02429E8625F00588914 /* CustomError.swift in Sources */,
 				57ADE99D29E6780E003FCADE /* RecipeListView+SearchController.swift in Sources */,
 				57ADE9A229E67CFD003FCADE /* CoreDataStore.swift in Sources */,
 				57E9C02129E8587A00588914 /* RecipeCustomModel.swift in Sources */,

@@ -28,20 +28,6 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
 
     override func viewDidLoad() {
         self.imageView.makeRoundImage(imageCircle: true)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            switch action.style{
-                case .default:
-                print("default")
-    
-                case .cancel:
-                print("cancel")
-                
-                case .destructive:
-                print("destructive")
-            @unknown default:
-                print("Error")
-            }
-        }))
         
         labelStepper.text = String("This recipe will take at least 0 hours")
         self.category.inputView = categoryPickerView
@@ -64,7 +50,6 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func stepper(_ sender: UIStepper) {
-        print(sender.value)
         stepperValue = Double(sender.value)
         labelStepper.text = String("This recipe will take at least \(Int(sender.value)) hours")
     }
@@ -77,25 +62,35 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        print(recipeName.text!)
-        if(recipeName.text! == "" || ingredients.text! == "" || category.text! == "" || recipeDescription.text! == "" || stepperValue == 0 || selectedImage == nil){
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
         let image = selectedImage?.jpegData(compressionQuality: 1) as NSData?
         let newRecipe = RecipeCustom(name: recipeName.text, recipeDescription: recipeDescription.text, imageName: image, ingredients: ingredients.text, recipeCategory: category.text, cookingTime: stepperValue)
         
         if(selectedRecipe == nil){
-           
             do{
-                let recipe = Recipe.saveRecipe(recipe: newRecipe)
+                let recipe = try Recipe.saveRecipe(recipe: newRecipe)
                 recipeList.append(recipe)
                 navigationController?.popViewController(animated: true)
+            }catch CustomError.requiredError{
+                print("Reqiuired")
+            }catch CustomError.outOfRange{
+                print("Out of range error")
+            }catch CustomError.defaultError{
+                print("Error")
+            }catch {
+                print("blabla")
             }
         }else{
             do{
-                Recipe.editRecipe(passedInRecipe: newRecipe, selectedRecipe: selectedRecipe!)
+                try Recipe.editRecipe(passedInRecipe: newRecipe, selectedRecipe: selectedRecipe!)
                 navigationController?.popViewController(animated: true)
+            }catch CustomError.requiredError{
+                print("Reqiuired")
+            }catch CustomError.outOfRange{
+                print("Out of range error")
+            }catch CustomError.defaultError{
+                print("Error")
+            }catch {
+                print("blabla")
             }
         }
     }
