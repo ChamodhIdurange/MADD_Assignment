@@ -77,55 +77,26 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-        
         print(recipeName.text!)
         if(recipeName.text! == "" || ingredients.text! == "" || category.text! == "" || recipeDescription.text! == "" || stepperValue == 0 || selectedImage == nil){
             self.present(alert, animated: true, completion: nil)
             return
         }
+        let image = selectedImage?.jpegData(compressionQuality: 1) as NSData?
+        let newRecipe = RecipeCustom(name: recipeName.text, recipeDescription: recipeDescription.text, imageName: image, ingredients: ingredients.text, recipeCategory: category.text, cookingTime: stepperValue)
+        
         if(selectedRecipe == nil){
-            let entity = NSEntityDescription.entity(forEntityName: "Recipe", in: context)
-            let newRecipe = Recipe(entity: entity!, insertInto: context)
-            newRecipe.name = recipeName.text
-            newRecipe.ingredients = ingredients.text
-            newRecipe.recipeCategory = category.text
-            newRecipe.recipeDescription = recipeDescription.text
-            newRecipe.cookingTime = stepperValue
-            newRecipe.imageName = selectedImage?.jpegData(compressionQuality: 1) as NSData?
-            
+           
             do{
-                try context.save()
-                recipeList.append(newRecipe)
+                let recipe = Recipe.saveRecipe(recipe: newRecipe)
+                recipeList.append(recipe)
                 navigationController?.popViewController(animated: true)
-            }catch{
-                print("Something went wrong, Please try again")
             }
         }else{
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Recipe")
             do{
-                let results: NSArray = try context.fetch(request) as NSArray
-                for result in results {
-                    let recipe = result as! Recipe
-                    if(recipe == selectedRecipe){
-                        recipe.name = recipeName.text
-                        recipe.ingredients = ingredients.text
-                        recipe.recipeCategory = category.text
-                        recipe.recipeDescription = recipeDescription.text
-                        recipe.cookingTime = stepperValue
-                        recipe.imageName = selectedImage?.jpegData(compressionQuality: 1) as NSData?
-                        
-                        try context.save()
-                        navigationController?.popViewController(animated: true)
-                    }
-                }
-            }catch{
-                print("Something went wront, Please try again")
+                Recipe.editRecipe(passedInRecipe: newRecipe, selectedRecipe: selectedRecipe!)
+                navigationController?.popViewController(animated: true)
             }
-            
         }
-        
     }
-    
 }

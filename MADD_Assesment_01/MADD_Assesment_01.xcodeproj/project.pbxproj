@@ -25,6 +25,8 @@
 		57D98E6629E1245F002281EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D98E6529E1245F002281EB /* Assets.xcassets */; };
 		57D98E6929E1245F002281EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D98E6729E1245F002281EB /* LaunchScreen.storyboard */; };
 		57D98E7129E12820002281EB /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D98E7029E12820002281EB /* CustomTableViewCell.swift */; };
+		57E9C01F29E853F800588914 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9C01E29E853F800588914 /* Recipe+CoreDataProperties.swift */; };
+		57E9C02129E8587A00588914 /* RecipeCustomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9C02029E8587A00588914 /* RecipeCustomModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		57D98E6829E1245F002281EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57D98E6A29E1245F002281EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57D98E7029E12820002281EB /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		57E9C01E29E853F800588914 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		57E9C02029E8587A00588914 /* RecipeCustomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCustomModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			children = (
 				578E8A7A29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld */,
 				57ADE9A129E67CFD003FCADE /* CoreDataStore.swift */,
+				57E9C01E29E853F800588914 /* Recipe+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				57B8E7A929E14D60003EF137 /* Recipe.swift */,
+				57E9C02029E8587A00588914 /* RecipeCustomModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,12 +275,14 @@
 				57B8E7AA29E14D60003EF137 /* Recipe.swift in Sources */,
 				57ADE99D29E6780E003FCADE /* RecipeListView+SearchController.swift in Sources */,
 				57ADE9A229E67CFD003FCADE /* CoreDataStore.swift in Sources */,
+				57E9C02129E8587A00588914 /* RecipeCustomModel.swift in Sources */,
 				57ADE99929E6747E003FCADE /* imageBorderContentView.swift in Sources */,
 				578E8A7929E1CC0900D32E59 /* RecipeAddViewController.swift in Sources */,
 				57B8E7A829E14AD9003EF137 /* RecipeDetailsViewController.swift in Sources */,
 				578E477229E465F7008573F1 /* SettingsViewController.swift in Sources */,
 				578E8A7C29E1DC8B00D32E59 /* MADD_Assesment_01.xcdatamodeld in Sources */,
 				57ADE9A729E6818A003FCADE /* RecipeAddViewController+imagePicker.swift in Sources */,
+				57E9C01F29E853F800588914 /* Recipe+CoreDataProperties.swift in Sources */,
 				57ADE9A929E68273003FCADE /* RecipeAddViewController+dropDown.swift in Sources */,
 				57D98E5F29E1245E002281EB /* SceneDelegate.swift in Sources */,
 			);
