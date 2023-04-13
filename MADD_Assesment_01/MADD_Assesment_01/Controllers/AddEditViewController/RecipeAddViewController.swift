@@ -65,33 +65,27 @@ class RecipeAddViewController: UIViewController, UIImagePickerControllerDelegate
         let image = selectedImage?.jpegData(compressionQuality: 1) as NSData?
         let newRecipe = RecipeCustom(name: recipeName.text, recipeDescription: recipeDescription.text, imageName: image, ingredients: ingredients.text, recipeCategory: category.text, cookingTime: stepperValue)
         
-        if(selectedRecipe == nil){
-            do{
+        do{
+            if(selectedRecipe == nil){
                 let recipe = try Recipe.saveRecipe(recipe: newRecipe)
                 recipeList.append(recipe)
-                navigationController?.popViewController(animated: true)
-            }catch CustomError.requiredError{
-                print("Reqiuired")
-            }catch CustomError.outOfRange{
-                print("Out of range error")
-            }catch CustomError.defaultError{
-                print("Error")
-            }catch {
-                print("blabla")
-            }
-        }else{
-            do{
+            }else{
                 try Recipe.editRecipe(passedInRecipe: newRecipe, selectedRecipe: selectedRecipe!)
-                navigationController?.popViewController(animated: true)
-            }catch CustomError.requiredError{
-                print("Reqiuired")
-            }catch CustomError.outOfRange{
-                print("Out of range error")
-            }catch CustomError.defaultError{
-                print("Error")
-            }catch {
-                print("blabla")
             }
+            navigationController?.popViewController(animated: true)
+        }catch CustomError.requiredError{
+            showToast(errorMessage: "All fields are required, please fill them")
+            print("Reqiuired")
+        }catch CustomError.outOfRange{
+            showToast(errorMessage: "Time required cannot be larger than 10 hours")
+            print("Out of range error")
+        }catch CustomError.defaultError{
+            showToast(errorMessage: "Something went wrong, please try again")
+            print("Error")
+        }catch {
+            showToast(errorMessage: "Something went wrong, please try again")
+            print("Error")
         }
     }
 }
+

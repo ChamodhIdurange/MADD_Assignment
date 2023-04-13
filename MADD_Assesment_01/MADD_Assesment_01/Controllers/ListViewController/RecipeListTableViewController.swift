@@ -54,10 +54,7 @@ extension RecipeListViewController: UITableViewDataSource, UITableViewDelegate {
             }
          
             recipeTable.deleteRows(at: [indexPath], with: .fade)
-            
         }
        
     }
-    
-    
 }
