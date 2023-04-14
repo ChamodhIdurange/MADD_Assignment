@@ -25,7 +25,7 @@ extension RecipeAddViewController{
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView.tag {
         case 1:
-            return categoryList[row]
+            return getCategoryName(category: categoryList[row])
         default:
             return "Data not found"
         }
@@ -34,7 +34,7 @@ extension RecipeAddViewController{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView.tag {
         case 1:
-            category.text = categoryList[row]
+            category.text = getCategoryName(category: categoryList[row])
             category.resignFirstResponder()
         default:
             return

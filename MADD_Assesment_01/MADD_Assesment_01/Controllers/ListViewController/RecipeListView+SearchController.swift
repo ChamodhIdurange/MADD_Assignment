@@ -18,7 +18,7 @@ extension RecipeListViewController: UISearchBarDelegate, UISearchResultsUpdating
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.searchBar.scopeButtonTitles = ["All"] + categoryList
+        searchController.searchBar.scopeButtonTitles = ["All"] + categoryList.map { $0.rawValue }
         searchController.searchBar.delegate = self
     }
     

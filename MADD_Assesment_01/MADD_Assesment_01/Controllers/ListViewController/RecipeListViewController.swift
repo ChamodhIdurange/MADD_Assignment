@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 var recipeList = [Recipe]()
-let categoryList = ["Vegetarioan", "Non-vegitarian", "Appetizers", "Desserts"]
+let categoryList = [Categories.Appetizers, Categories.Desserts, Categories.Entree, Categories.Salads]
 
 class RecipeListViewController: UIViewController {
     
