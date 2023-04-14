@@ -25,11 +25,22 @@
 		57D98E6629E1245F002281EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57D98E6529E1245F002281EB /* Assets.xcassets */; };
 		57D98E6929E1245F002281EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57D98E6729E1245F002281EB /* LaunchScreen.storyboard */; };
 		57D98E7129E12820002281EB /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D98E7029E12820002281EB /* CustomTableViewCell.swift */; };
+		57E0958129E94D9600CA695A /* RecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E0958029E94D9600CA695A /* RecipeTests.swift */; };
 		57E9C01F29E853F800588914 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9C01E29E853F800588914 /* Recipe+CoreDataProperties.swift */; };
 		57E9C02129E8587A00588914 /* RecipeCustomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9C02029E8587A00588914 /* RecipeCustomModel.swift */; };
 		57E9C02429E8625F00588914 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9C02329E8625F00588914 /* CustomError.swift */; };
 		57E9C02629E874CC00588914 /* toastLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E9C02529E874CC00588914 /* toastLabelView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		57E0958229E94D9700CA695A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57D98E5129E1245E002281EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 57D98E5829E1245E002281EB;
+			remoteInfo = MADD_Assesment_01;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		578E477129E465F7008573F1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +63,8 @@
 		57D98E6829E1245F002281EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57D98E6A29E1245F002281EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57D98E7029E12820002281EB /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		57E0957E29E94D9600CA695A /* RecipeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57E0958029E94D9600CA695A /* RecipeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTests.swift; sourceTree = "<group>"; };
 		57E9C01E29E853F800588914 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		57E9C02029E8587A00588914 /* RecipeCustomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCustomModel.swift; sourceTree = "<group>"; };
 		57E9C02329E8625F00588914 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
@@ -60,6 +73,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		57D98E5629E1245E002281EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57E0957B29E94D9600CA695A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -158,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				57D98E5B29E1245E002281EB /* MADD_Assesment_01 */,
+				57E0957F29E94D9600CA695A /* RecipeTests */,
 				57D98E5A29E1245E002281EB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				57D98E5929E1245E002281EB /* MADD_Assesment_01.app */,
+				57E0957E29E94D9600CA695A /* RecipeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +206,14 @@
 				57D98E6A29E1245F002281EB /* Info.plist */,
 			);
 			path = MADD_Assesment_01;
+			sourceTree = "<group>";
+		};
+		57E0957F29E94D9600CA695A /* RecipeTests */ = {
+			isa = PBXGroup;
+			children = (
+				57E0958029E94D9600CA695A /* RecipeTests.swift */,
+			);
+			path = RecipeTests;
 			sourceTree = "<group>";
 		};
 		57E9C01C29E84AE300588914 /* Application */ = {
@@ -231,6 +261,24 @@
 			productReference = 57D98E5929E1245E002281EB /* MADD_Assesment_01.app */;
 			productType = "com.apple.product-type.application";
 		};
+		57E0957D29E94D9600CA695A /* RecipeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57E0958629E94D9700CA695A /* Build configuration list for PBXNativeTarget "RecipeTests" */;
+			buildPhases = (
+				57E0957A29E94D9600CA695A /* Sources */,
+				57E0957B29E94D9600CA695A /* Frameworks */,
+				57E0957C29E94D9600CA695A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57E0958329E94D9700CA695A /* PBXTargetDependency */,
+			);
+			name = RecipeTests;
+			productName = RecipeTests;
+			productReference = 57E0957E29E94D9600CA695A /* RecipeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -243,6 +291,10 @@
 				TargetAttributes = {
 					57D98E5829E1245E002281EB = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					57E0957D29E94D9600CA695A = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 57D98E5829E1245E002281EB;
 					};
 				};
 			};
@@ -260,6 +312,7 @@
 			projectRoot = "";
 			targets = (
 				57D98E5829E1245E002281EB /* MADD_Assesment_01 */,
+				57E0957D29E94D9600CA695A /* RecipeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,6 +325,13 @@
 				57D98E6929E1245F002281EB /* LaunchScreen.storyboard in Resources */,
 				57D98E6629E1245F002281EB /* Assets.xcassets in Resources */,
 				57D98E6429E1245E002281EB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57E0957C29E94D9600CA695A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +364,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		57E0957A29E94D9600CA695A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57E0958129E94D9600CA695A /* RecipeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		57E0958329E94D9700CA695A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 57D98E5829E1245E002281EB /* MADD_Assesment_01 */;
+			targetProxy = 57E0958229E94D9700CA695A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		57D98E6229E1245E002281EB /* Main.storyboard */ = {
@@ -494,6 +570,48 @@
 			};
 			name = Release;
 		};
+		57E0958429E94D9700CA695A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sliit.RecipeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MADD_Assesment_01.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MADD_Assesment_01";
+			};
+			name = Debug;
+		};
+		57E0958529E94D9700CA695A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sliit.RecipeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MADD_Assesment_01.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MADD_Assesment_01";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -511,6 +629,15 @@
 			buildConfigurations = (
 				57D98E6E29E1245F002281EB /* Debug */,
 				57D98E6F29E1245F002281EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		57E0958629E94D9700CA695A /* Build configuration list for PBXNativeTarget "RecipeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57E0958429E94D9700CA695A /* Debug */,
+				57E0958529E94D9700CA695A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
